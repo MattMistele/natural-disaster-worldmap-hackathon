@@ -1,7 +1,7 @@
 <?PHP
 //    phpinfo();
    echo "hi";
-   var_dump(extension_loaded('domxml'));
+   var_dump(extension_loaded('dom_xml'));
    echo "omg /n";
    $servername="disaster-database-mysql-azure.mysql.database.azure.com";
    $username="myadmin@disaster-database-mysql-azure";
