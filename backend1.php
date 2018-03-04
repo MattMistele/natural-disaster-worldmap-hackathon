@@ -37,7 +37,7 @@ if (!$db_selected) {
 }
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM disaster_info";
+$query = "SELECT * FROM disaster_info WHERE id=1";
 $result = mysql_query($query);
 if (!$result) {
   die('Invalid query: ' . mysql_error());
@@ -46,9 +46,10 @@ if (!$result) {
 header("Content-type: text/xml");
 
 echo $result;
+echo $query;
 
 // Start XML file, echo parent node
-echo '<markers>';
+//echo '<markers>';
 
 // // Iterate through the rows, printing XML nodes for each
 // //while ($row = mysqli_fetch_assoc($result)){
