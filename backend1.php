@@ -20,7 +20,7 @@ echo "Hello World ";
 // }
 
 // Opens a connection to a MySQL server
-//$connection=mysql_connect ($servername, $username, $password);
+$connection=mysql_connect ($servername, $username, $password);
 
 // if (!$connection) {
 //   die('Not connected : ' . mysql_error());
