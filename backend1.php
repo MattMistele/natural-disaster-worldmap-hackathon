@@ -39,6 +39,10 @@ if (!$db_selected) {
 // Select all the rows in the markers table
 $query = "SELECT * FROM disaster_info WHERE id=1";
 $result = mysql_query($query);
+
+echo $row['1']['lat'];
+echo $row['lat']['1'];
+
 if (!$result) {
   die('Invalid query: ' . mysql_error());
 }
