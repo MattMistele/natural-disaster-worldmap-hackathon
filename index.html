@@ -1,49 +1,93 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Azure App Service - Sample Static HTML Site</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
-
   <body>
-    <div class="navbar-wrapper">
-      <div class="container">
-          <h1>Azure App Service - Sample Static HTML Site</h1>
-          <hr/>
-      </div>
-    </div>
+    <div id="map"></div>
+    <script>
+var citymap = {
+    city: {
+     center: {lat: 35, lng: 10},
+   pop: 99999,
+   dis: "disaster", 
+   place: "UK",
+   color: "red",
+   rad: 100000,
+   amount : 0
+    }
+}
 
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+function assignments(latitude, longitude, population, disaster, area, c, radius){
+    city[amount].lat = latitude,
+ city[amount].lng = longitude,
+ city[amount].pop = population,
+ city[amount].dis = disaster,
+ city[amount].place = area,
+ city[amount].color = setColor(c),
+ city[amount].rad = radius
+ amount++;
+}
 
-    <div class="container">
-        
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <img class="img-rectangle" src="img/azure-portal.png" alt="Azure App Service Web Apps" height="140">
-          <h2>Azure App Service Web Apps</h2>
-          <p>App Service Web Apps is a fully managed compute platform that is optimized for hosting websites and web applications. This platform-as-a-service (PaaS) offering of Microsoft Azure lets you focus on your business logic while Azure takes care of the infrastructure to run and scale your apps.</p>
-        </div>
-          <div class="col-xs-12 col-sm-6">
-              <img class="img-rectangle" src="img/cdn.png" alt="CDN" height="140">
-              <h2>Azure Content Delivery Network (CDN)</h2>
-              <p>The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world.</p>
-          </div>
-      </div>
-    </div>
+function setColor(col){
+    switch(col){
+     case "black": 
+         return '#000000'
+   case "red":
+       return '#FF0000'
+   case "green":
+       return '#00FF00'
+   case "blue":
+       return '#0000FF'
+   default:
+       return '#FFFFFF'//white    
+ }
+}
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="js/bootstrap.min.js"></script>
+
+function initMap() {
+ 
+ var map = new google.maps.Map(document.getElementById('map'), {
+   zoom: 2.00,
+   center: {lat: 35.5, lng: 0.0},
+   mapTypeId: 'terrain'
+ });
+}
+ 
+
+ // Construct the circle for each value in citymap.
+ // Note: We scale the area of the circle based on the population.
+ //for (var a in citymap) {
+   // Add the circle for this city to the map.
+   var cityCircle = new google.maps.Circle({
+     strokeColor: '#FF0000',
+     strokeOpacity: 0.8,
+     strokeWeight: 2,
+     fillColor: '#FF0000',
+     fillOpacity: 0.35,
+     map: map,
+     center: citymap.center,
+     radius: Math.sqrt(citymap.city.population) * 100
+   });
+ //}
+	  
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYnASHvXPB299mNCUmQhWRVjZr5n1AwcU&callback=initMap"
+    async defer></script>
   </body>
 </html>
