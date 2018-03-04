@@ -1,0 +1,17 @@
+﻿body {
+    padding-top: 54px;
+}
+
+.nav li {
+    align-content: center;
+}
+
+@media (min-width: 900px) {
+    body {
+        padding-top: 50px;
+    }
+}
+
+header.bg-primary text-white {
+    background-image: url("logo.jpg");
+}
