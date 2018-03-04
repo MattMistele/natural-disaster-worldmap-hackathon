@@ -32,7 +32,7 @@
    $sxe = simplexml_import_dom( $dom );
    
    /*** echo the xml ***/
-   //echo $sxe->asXML();
+   echo $sxe->asXML();
 
 
    echo "Demo here";
