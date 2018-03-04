@@ -49,7 +49,7 @@ header("Content-type: text/xml");
 echo '<markers>';
 
 // Iterate through the rows, printing XML nodes for each
-while ($row = @mysql_fetch_assoc($result)){
+while ($row = @mysqli_fetch_assoc($result)){
   // Add to XML document node
   echo '<marker ';
   echo 'id="' . $ind . '" ';
