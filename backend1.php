@@ -1,60 +1,63 @@
 <?PHP
-require("phpsqlajax_dbinfo.php");
 
-$servername="disaster-database-mysql-azure.mysql.database.azure.com";
-$username="myadmin@disaster-database-mysql-azure";
-$password="Nobodygetswhattheywant!";
-$database="disaster";
+echo "Hello World"
 
-function parseToXML($htmlStr)
-{
-$xmlStr=str_replace('<','&lt;',$htmlStr);
-$xmlStr=str_replace('>','&gt;',$xmlStr);
-$xmlStr=str_replace('"','&quot;',$xmlStr);
-$xmlStr=str_replace("'",'&#39;',$xmlStr);
-$xmlStr=str_replace("&",'&amp;',$xmlStr);
-return $xmlStr;
-}
+// //require("phpsqlajax_dbinfo.php");
 
-// Opens a connection to a MySQL server
-$connection=mysql_connect ($servername, $username, $password);
+// $servername="disaster-database-mysql-azure.mysql.database.azure.com";
+// $username="myadmin@disaster-database-mysql-azure";
+// $password="Nobodygetswhattheywant!";
+// $database="disaster";
 
-if (!$connection) {
-  die('Not connected : ' . mysql_error());
-}
+// function parseToXML($htmlStr)
+// {
+// $xmlStr=str_replace('<','&lt;',$htmlStr);
+// $xmlStr=str_replace('>','&gt;',$xmlStr);
+// $xmlStr=str_replace('"','&quot;',$xmlStr);
+// $xmlStr=str_replace("'",'&#39;',$xmlStr);
+// $xmlStr=str_replace("&",'&amp;',$xmlStr);
+// return $xmlStr;
+// }
 
-// Set the active MySQL database
-$db_selected = mysql_select_db($database, $connection);
-if (!$db_selected) {
-  die ('Can\'t use db : ' . mysql_error());
-}
+// // Opens a connection to a MySQL server
+// $connection=mysql_connect ($servername, $username, $password);
 
-// Select all the rows in the markers table
-$query = "SELECT * FROM markers WHERE 1";
-$result = mysql_query($query);
-if (!$result) {
-  die('Invalid query: ' . mysql_error());
-}
+// if (!$connection) {
+//   die('Not connected : ' . mysql_error());
+// }
 
-header("Content-type: text/xml");
+// // Set the active MySQL database
+// $db_selected = mysql_select_db($database, $connection);
+// if (!$db_selected) {
+//   die ('Can\'t use db : ' . mysql_error());
+// }
 
-// Start XML file, echo parent node
-echo '<markers>';
+// // Select all the rows in the markers table
+// $query = "SELECT * FROM markers WHERE 1";
+// $result = mysql_query($query);
+// if (!$result) {
+//   die('Invalid query: ' . mysql_error());
+// }
 
-// Iterate through the rows, printing XML nodes for each
-while ($row = @mysql_fetch_assoc($result)){
-  // Add to XML document node
-  echo '<marker ';
-  echo 'id="' . $ind . '" ';
-  echo 'name="' . parseToXML($row['name']) . '" ';
-  echo 'address="' . parseToXML($row['address']) . '" ';
-  echo 'lat="' . $row['lat'] . '" ';
-  echo 'lng="' . $row['lng'] . '" ';
-  echo 'type="' . $row['type'] . '" ';
-  echo '/>';
-}
+// header("Content-type: text/xml");
 
-// End XML file
-echo '</markers>';
+// // Start XML file, echo parent node
+// echo '<markers>';
+
+// // Iterate through the rows, printing XML nodes for each
+// while ($row = @mysql_fetch_assoc($result)){
+//   // Add to XML document node
+//   echo '<marker ';
+//   echo 'id="' . $ind . '" ';
+//   echo 'name="' . parseToXML($row['name']) . '" ';
+//   echo 'address="' . parseToXML($row['address']) . '" ';
+//   echo 'lat="' . $row['lat'] . '" ';
+//   echo 'lng="' . $row['lng'] . '" ';
+//   echo 'type="' . $row['type'] . '" ';
+//   echo '/>';
+// }
+
+// // End XML file
+// echo '</markers>';
 
 ?>
