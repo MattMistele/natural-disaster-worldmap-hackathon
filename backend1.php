@@ -45,11 +45,13 @@ if (!$result) {
 
 header("Content-type: text/xml");
 
+echo $result;
+
 // Start XML file, echo parent node
 echo '<markers>';
 
 // Iterate through the rows, printing XML nodes for each
-while ($row = @mysqli_fetch_assoc($result)){
+while ($row = mysqli_fetch_assoc($result)){
   // Add to XML document node
   echo '<marker ';
   echo 'id="' . $id . '" ';
