@@ -50,10 +50,10 @@ if (!$result) {
 // echo $result;
 
 
-while($row = mysqli_fetch_assoc($result)){
-	//echo $row;
-	 echo $row['lat'];
-}
+
+$row = mysqli_fetch_all($result);
+
+echo $row;
  
  //echo $row['lat'];
  
