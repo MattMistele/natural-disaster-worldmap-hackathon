@@ -47,15 +47,15 @@ if (!$result) {
 
 // header("Content-type: text/xml");
 
- echo $result;
+// echo $result;
 
 
 while($row = mysqli_fetch_assoc($result)){
-	echo $row;
+	//echo $row;
 	 echo $row['lat'];
 }
  
- echo $row['lat'];
+ //echo $row['lat'];
  
 // echo $query;
 
