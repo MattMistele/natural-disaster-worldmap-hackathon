@@ -2,7 +2,7 @@
 //    phpinfo();
    echo "hi";
    var_dump(extension_loaded('domxml'));
-//    echo "
+   echo "omg /n";
    $servername="disaster-database-mysql-azure.mysql.database.azure.com";
    $username="myadmin@disaster-database-mysql-azure";
    $password="Nobodygetswhattheywant!";
