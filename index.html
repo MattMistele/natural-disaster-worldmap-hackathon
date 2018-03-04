@@ -71,13 +71,14 @@ function initMap() {
 
 
 
+
  // Construct the circle for each value in citymap.
  // Note: We scale the area of the circle based on the population.
  for (var a in citymap) {
  // Add the circle for this city to the map.
  var cityCircle = new google.maps.Circle({
   strokeColor: '#FF0000',
-  strokeOpacity: 0.8,
+  strokeOpacity: 0,
   strokeWeight: 2,
   fillColor: '#FF0000',
   fillOpacity: 0.35,
@@ -85,8 +86,19 @@ function initMap() {
   center: citymap[a].center,
   radius: Math.sqrt(citymap[a].pop) * 100
  });
+
+google.maps.event.addListener(cityCircle,"mouseover",function(){
+ this.setOptions({fillOpacity:.5});
+}); 
+
+google.maps.event.addListener(cityCircle,"mouseout",function(){
+ this.setOptions({fillOpacity: .35});
+});
+
 }
 }
+
+
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYnASHvXPB299mNCUmQhWRVjZr5n1AwcU&callback=initMap"
