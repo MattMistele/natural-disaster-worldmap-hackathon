@@ -22,27 +22,27 @@ return $xmlStr;
 
 
 // Opens a connection to a MySQL server
-$connection=mysql_connect ($servername, $username, $password);
+$connection=mysqli_connect ($servername, $username, $password);
 
 if (!$connection) {
-  die('Not connected : ' . mysql_error());
+  die('Not connected : ' . mysqli_error());
 }
 
 // Set the active MySQL database
-$db_selected = mysql_select_db($database, $connection);
+$db_selected = mysqli_select_db($database, $connection);
 if (!$db_selected) {
-  die ('Can\'t use db : ' . mysql_error());
+  die ('Can\'t use db : ' . mysqli_error());
 }
 
 // Select all the rows in the markers table
 $query = "SELECT * FROM disaster_info WHERE id=1";
-$result = mysql_query($query);
+$result = mysqli_query($query);
 
 // echo $row['1']['lat'];
 // echo $row['lat']['1'];
 
 if (!$result) {
-  die('Invalid query: ' . mysql_error());
+  die('Invalid query: ' . mysqli_error());
 }
 
 // header("Content-type: text/xml");
