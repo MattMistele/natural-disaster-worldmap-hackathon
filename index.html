@@ -17,17 +17,12 @@
         padding: 0;
       }
   </style>
-
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom styles for this template -->
 <link href="css/scrolling-nav.css" rel="stylesheet">
-
 </head>
-
 <body id="page-top">
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
         <div class="container">
@@ -52,25 +47,123 @@
             </div>
         </div>
     </nav>
-
-
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-
   <div id="map"></div>
   <script>
     var citymap = {
-      city: {
-        center: {lat: 34.052, lng: -118.243},
-        pop: 385799,
-   /*dis: "disaster",
-   string: place,
-   color: 'red',
-   rad: 10000,
-   amount : 0*/
+     losAngeles: {
+       center: {lat: 34.052, lng: -118.243},
+       pop: 3976000,
+       color: '#FF0000'
+  /*dis: "disaster",
+  string: place,
+  color: 'red',
+  rad: 10000,
+  amount : 0*/
+ 
+},
+     sanFrancisco: {
+       center:{lat: 37.449, lng: -122.16},
+       pop: 864816,
+       color: '#00FF00'
+},
+     london: {
+       center:{lat: 51.507, lng: -0.1278},
+       pop: 8788000,
+       color: '#FF0000'
+},
+     newYork: {
+       center:{lat: 40.7128 , lng: -74 },
+       pop: 8538000,
+       color: '#FF0000'
+},
+     paris: {
+       center:{lat: 48.86, lng: 2.35},
+       pop: 2244000,
+       color: '#00FF00'
+},
+     beijing: {
+       center:{lat: 39.90, lng: 116.40},
+       pop: 2150000,
+       color: '#FF0000'
+},
+         tokyo:{
+         center: {lat: 35.69, lng: 139.69},
+       pop: 9273000,
+       color: '#00FF00'
+},
+            chile:{
+         center: {lat: -35.68, lng: -71.54},
+       pop: 17910000,
+       color: '#FF0000'
+},
+            chad:{
+         center: {lat: 15.45, lng: 18.73},
+       pop: 14450000,
+       color: '#0000FF'
+},
+            mumbai:{
+         center: {lat: 19.08, lng: 72.88},
+       pop: 18410000,
+       color: '#0000FF'
+},
+            moscow:{
+         center: {lat: 55.76, lng: 37.60},
+       pop: 11920000,
+       color: '#0000FF'
+},
+            sierraLeone:{
+         center: {lat: 8.46, lng: -11.78},
+       pop: 7000000,
+       color: '#0000FF'
+},
+            guinea:{
+         center: {lat: 9.94, lng: -9.70},
+       pop: 2240000,
+       color: '#FF0000'
+},
+            harvey:{
+         center: {lat: 29.76, lng: -95.37},
+       pop: 8303000,
+       color: '#FFA500'
+},
+            colombia:{
+         center: {lat: 4.57, lng: -74.30},
+       pop: 48650000,
+       color: '#00FF00'
+},
+            nepal:{
+         center: {lat: 28.40, lng: 84.12},
+       pop: 28980000,
+       color: '#0000FF'
+},
+            montreal:{
+         center: {lat: 46.81, lng: -71.21},
+       pop: 1000000,
+       color: '#0000FF'
+},
+            maxicoCity:{
+         center: {lat: 19.43, lng: -99.13},
+       pop: 8851000,
+       color: '#FF0000'
+},
+            sydney:{
+         center: {lat: -33.87, lng: 151.21},
+       pop: 4029000,
+       color: '#00FF00'
+},
+            iran:{
+         center: {lat: 32.43, lng: 53.69},
+       pop: 80280000,
+       color: '#00FF00'
+},     irma: {
+       center:{lat: 25.76, lng: -80.19},
+       pop: 12312456,
+       color: '#FFA500'
 }
+   
 };
-
 function assignments(latitude, longitude, population, disaster, area, c, radius){
   city[amount].lat = latitude,
   city[amount].lng = longitude,
@@ -79,10 +172,8 @@ function assignments(latitude, longitude, population, disaster, area, c, radius)
   city[amount].place = area,
   city[amount].color = setColor(c),
   city[amount].rad = radius
-  amount++;
-  
+  amount++; 
 }
-
 function setColor(col){
   switch(col){
     case "black":
@@ -97,59 +188,44 @@ function setColor(col){
        return '#FFFFFF'//white    
    }
 }
-
-
 function initMap() {
-
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 2.7,
     center: {lat: 35.5, lng: 0.0},
     mapTypeId: 'terrain'
   });
-
-
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">Hurricane Irma</h1>'+
             '<div id="bodyContent">'+
-            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-            'sandstone rock formation in the southern part of the '+
-            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-            'south west of the nearest large town, Alice Springs; 450&#160;km '+
+            'Hurricane Irma was an extremely powerful and catastrophic Cape Verde-type hurricane, ' +
+            'the strongest observed in the Atlantic in terms of maximum sustained winds since Wilma, '+
+            'and the strongest storm on record to exist in the open Atlantic region. Irma was the first '+
+            'Category 5 hurricane to strike the Leeward Islands on record, followed by Hurricane Maria '+
             '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-            'Aboriginal people of the area. It has many springs, waterholes, '+
-            'rock caves and ancient paintings. Uluru is listed as a World '+
-            'Heritage Site.</p>'+
-            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-            '(last visited June 22, 2009).</p>'+
+            'two weeks later, and is the second-costliest Caribbean hurricane on record, after Maria. '+
+            '<br>Follow the link to support those affected:  <a href="https://www.redcross.org">https://www.redcross.org</a> '+
+            '</p> '+
             '</div>'+
             '</div>';
-
-
-
  // Construct the circle for each value in citymap.
  // Note: We scale the area of the circle based on the population.
  for (var a in citymap) {
  // Add the circle for this city to the map.
  var cityCircle = new google.maps.Circle({
-  strokeColor: '#FF0000',
+  strokeColor: citymap[a].color,
   strokeOpacity: 0,
   strokeWeight: 2,
-  fillColor: '#FF0000',
+  fillColor: citymap[a].color,
   fillOpacity: 0.35,
   map: map,
   center: citymap[a].center,
   radius: Math.sqrt(citymap[a].pop) * 100
  });
-
          var infowindow = new google.maps.InfoWindow({
           content: contentString
         });
-
         var marker = new google.maps.Marker({
           position: citymap[a].center,
           map: map,
@@ -159,22 +235,16 @@ function initMap() {
         cityCircle.addListener('click', function() {
           infowindow.open(map, marker);
         });
-
 google.maps.event.addListener(cityCircle,"mouseover",function(){
   
  this.setOptions({fillOpacity:.5});
 }); 
-
 google.maps.event.addListener(cityCircle,"mouseout",function(){
   
  this.setOptions({fillOpacity: .35});
 });
-
 }
 }
-
-
-
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYnASHvXPB299mNCUmQhWRVjZr5n1AwcU&callback=initMap"
 async defer></script>
