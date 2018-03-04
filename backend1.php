@@ -51,7 +51,7 @@ if (!$result) {
 
  $row = mysqli_fetch_assoc($result);
  
- echo $row;
+ echo $row['lat'];
  
 // echo $query;
 
