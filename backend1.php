@@ -4,7 +4,6 @@
 
  //require("phpsqlajax_dbinfo.php");
 
- echo "Echo";
 
  $servername="disaster-database-mysql-azure.mysql.database.azure.com";
  $username="myadmin@disaster-database-mysql-azure";
@@ -21,7 +20,6 @@ $xmlStr=str_replace("&",'&amp;',$xmlStr);
 return $xmlStr;
 }
 
- echo "Echo1";
 
 // Opens a connection to a MySQL server
 $connection=mysql_connect ($servername, $username, $password);
@@ -50,26 +48,31 @@ if (!$result) {
 // header("Content-type: text/xml");
 
  echo $result;
+
+ $row = mysqli_fetch_assoc($result);
+ 
+ echo $row;
+ 
 // echo $query;
 
 // Start XML file, echo parent node
 //echo '<markers>';
 
-// // Iterate through the rows, printing XML nodes for each
-// //while ($row = mysqli_fetch_assoc($result)){
-//   // Add to XML document node
-//   echo '<marker ';
-//   echo 'id="' . $id . '" ';
-//   echo 'category="' . parseToXML($row['category']) . '" ';
-//   echo 'name="' . parseToXML($row['title']) . '" ';
-//   echo 'lat="' . $row['lat'] . '" ';
-//   echo 'lng="' . $row['lng'] . '" ';
-//   echo 'bubble_size="' . $row['bubble_size'] . '" ';
-//   echo 'color="' . $row['color'] . '" ';
-//   echo 'help="' . parseToXML($row['help']) . '" ';
-//   echo 'description="' . parseToXML($row['description']) . '" ';
-//   echo '/>';
-// //}
+// Iterate through the rows, printing XML nodes for each
+//while ($row = mysqli_fetch_assoc($result)){
+  // Add to XML document node
+  // echo '<marker ';
+  // echo 'id="' . $id . '" ';
+  // echo 'category="' . parseToXML($row['category']) . '" ';
+  // echo 'name="' . parseToXML($row['title']) . '" ';
+  // echo 'lat="' . $row['lat'] . '" ';
+  // echo 'lng="' . $row['lng'] . '" ';
+  // echo 'bubble_size="' . $row['bubble_size'] . '" ';
+  // echo 'color="' . $row['color'] . '" ';
+  // echo 'help="' . parseToXML($row['help']) . '" ';
+  // echo 'description="' . parseToXML($row['description']) . '" ';
+  // echo '/>';
+//}
 
 // End XML file
 //echo '</markers>';
