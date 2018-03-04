@@ -4,6 +4,8 @@
 
  require("phpsqlajax_dbinfo.php");
 
+ echo "Echo";
+
  $servername="disaster-database-mysql-azure.mysql.database.azure.com";
  $username="myadmin@disaster-database-mysql-azure";
  $password="Nobodygetswhattheywant!";
@@ -18,6 +20,8 @@ $xmlStr=str_replace("'",'&#39;',$xmlStr);
 $xmlStr=str_replace("&",'&amp;',$xmlStr);
 return $xmlStr;
 }
+
+ echo "Echo1";
 
 // Opens a connection to a MySQL server
 $connection=mysql_connect ($servername, $username, $password);
