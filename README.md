@@ -1,3 +1,3 @@
-# Contributing
+This website's intention is to raise awareness about natural disasters by showing a live map of natural disasters happening right now. It will show the signifigance of each disaster, and give rescources about how to get involved in the refief effort.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Visit the website here: http://naturaldisastermap.azurewebsites.net/
