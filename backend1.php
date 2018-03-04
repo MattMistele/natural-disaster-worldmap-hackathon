@@ -2,7 +2,7 @@
 
 //echo "Hello World ";
 
- require("phpsqlajax_dbinfo.php");
+ //require("phpsqlajax_dbinfo.php");
 
  echo "Echo";
 
