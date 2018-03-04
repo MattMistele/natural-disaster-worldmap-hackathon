@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Natural Disaster Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+
+          /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+          #map {
+              height: 100%;
+          }
+          /* Optional: Makes the sample page fill the window. */
+          html, body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+          }
+    </style>
+
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/scrolling-nav.css" rel="stylesheet">
+
+  </head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                Global Disaster Relief
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="about.html#mission">Mission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="about.html#support">Support</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="about.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <div id="map"></div>
+    <script>
+        var citymap = {
+            city: {
+                center: { lat: 34.052, lng: -118.243 },
+                pop: 385799,
+                /*dis: "disaster",
+                string: place,
+                color: 'red',
+                rad: 10000,
+                amount : 0*/
+            }
+        };
+
+        function assignments(latitude, longitude, population, disaster, area, c, radius) {
+            city[amount].lat = latitude,
+                city[amount].lng = longitude,
+                city[amount].pop = population,
+                city[amount].dis = disaster,
+                city[amount].place = area,
+                city[amount].color = setColor(c),
+                city[amount].rad = radius
+            amount++;
+
+        }
+
+        function setColor(col) {
+            switch (col) {
+                case "black":
+                    return '#000000'
+                case "red":
+                    return '#FF0000'
+                case "green":
+                    return '#00FF00'
+                case "blue":
+                    return '#0000FF'
+                default:
+                    return '#FFFFFF'//white
+            }
+        }
+
+
+        function initMap() {
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 2.7,
+                center: { lat: 35.5, lng: 0.0 },
+                mapTypeId: 'terrain'
+            });
+
+
+
+            // Construct the circle for each value in citymap.
+            // Note: We scale the area of the circle based on the population.
+            for (var a in citymap) {
+                // Add the circle for this city to the map.
+                var cityCircle = new google.maps.Circle({
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.35,
+                    map: map,
+                    center: citymap[a].center,
+                    radius: Math.sqrt(citymap[a].pop) * 100
+                });
+            }
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYnASHvXPB299mNCUmQhWRVjZr5n1AwcU&callback=initMap"
+            async defer></script>
+</body>
+</html>

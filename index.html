@@ -1,23 +1,22 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Live Natural Disaster Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-
-          /* Always set the map height explicitly to define the size of the div
-        * element that contains the map. */
-          #map {
-              height: 100%;
-          }
-          /* Optional: Makes the sample page fill the window. */
-          html, body {
-              height: 100%;
-              margin: 0;
-              padding: 0;
-          }
-    </style>
+  <title>Live Natural Disaster Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <style>
+      /* Always set the map height explicitly to define the size of the div
+      * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+  </style>
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +24,7 @@
 <!-- Custom styles for this template -->
 <link href="css/scrolling-nav.css" rel="stylesheet">
 
-  </head>
+</head>
 
 <body id="page-top">
 
@@ -58,77 +57,126 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 
-    <div id="map"></div>
-    <script>
-        var citymap = {
-            city: {
-                center: { lat: 34.052, lng: -118.243 },
-                pop: 385799,
-                /*dis: "disaster",
-                string: place,
-                color: 'red',
-                rad: 10000,
-                amount : 0*/
-            }
-        };
+  <div id="map"></div>
+  <script>
+    var citymap = {
+      city: {
+        center: {lat: 34.052, lng: -118.243},
+        pop: 385799,
+   /*dis: "disaster",
+   string: place,
+   color: 'red',
+   rad: 10000,
+   amount : 0*/
+}
+};
 
-        function assignments(latitude, longitude, population, disaster, area, c, radius) {
-            city[amount].lat = latitude,
-                city[amount].lng = longitude,
-                city[amount].pop = population,
-                city[amount].dis = disaster,
-                city[amount].place = area,
-                city[amount].color = setColor(c),
-                city[amount].rad = radius
-            amount++;
+function assignments(latitude, longitude, population, disaster, area, c, radius){
+  city[amount].lat = latitude,
+  city[amount].lng = longitude,
+  city[amount].pop = population,
+  city[amount].dis = disaster,
+  city[amount].place = area,
+  city[amount].color = setColor(c),
+  city[amount].rad = radius
+  amount++;
+  
+}
 
-        }
-
-        function setColor(col) {
-            switch (col) {
-                case "black":
-                    return '#000000'
-                case "red":
-                    return '#FF0000'
-                case "green":
-                    return '#00FF00'
-                case "blue":
-                    return '#0000FF'
-                default:
-                    return '#FFFFFF'//white
-            }
-        }
-
-
-        function initMap() {
-
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 2.7,
-                center: { lat: 35.5, lng: 0.0 },
-                mapTypeId: 'terrain'
-            });
+function setColor(col){
+  switch(col){
+    case "black":
+    return '#000000'
+    case "red":
+    return '#FF0000'
+    case "green":
+    return '#00FF00'
+    case "blue":
+    return '#0000FF'
+    default:
+       return '#FFFFFF'//white    
+   }
+}
 
 
+function initMap() {
 
-            // Construct the circle for each value in citymap.
-            // Note: We scale the area of the circle based on the population.
-            for (var a in citymap) {
-                // Add the circle for this city to the map.
-                var cityCircle = new google.maps.Circle({
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: '#FF0000',
-                    fillOpacity: 0.35,
-                    map: map,
-                    center: citymap[a].center,
-                    radius: Math.sqrt(citymap[a].pop) * 100
-                });
-            }
-        }
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 2.7,
+    center: {lat: 35.5, lng: 0.0},
+    mapTypeId: 'terrain'
+  });
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYnASHvXPB299mNCUmQhWRVjZr5n1AwcU&callback=initMap"
-            async defer></script>
+
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+            'sandstone rock formation in the southern part of the '+
+            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+            'south west of the nearest large town, Alice Springs; 450&#160;km '+
+            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+            'Aboriginal people of the area. It has many springs, waterholes, '+
+            'rock caves and ancient paintings. Uluru is listed as a World '+
+            'Heritage Site.</p>'+
+            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>';
+
+
+
+ // Construct the circle for each value in citymap.
+ // Note: We scale the area of the circle based on the population.
+ for (var a in citymap) {
+ // Add the circle for this city to the map.
+ var cityCircle = new google.maps.Circle({
+  strokeColor: '#FF0000',
+  strokeOpacity: 0,
+  strokeWeight: 2,
+  fillColor: '#FF0000',
+  fillOpacity: 0.35,
+  map: map,
+  center: citymap[a].center,
+  radius: Math.sqrt(citymap[a].pop) * 100
+ });
+
+         var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position: citymap[a].center,
+          map: map,
+          opacity: 0,
+          title: 'Uluru (Ayers Rock)'
+        });
+        cityCircle.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
+google.maps.event.addListener(cityCircle,"mouseover",function(){
+  
+ this.setOptions({fillOpacity:.5});
+}); 
+
+google.maps.event.addListener(cityCircle,"mouseout",function(){
+  
+ this.setOptions({fillOpacity: .35});
+});
+
+}
+}
+
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYnASHvXPB299mNCUmQhWRVjZr5n1AwcU&callback=initMap"
+async defer></script>
 </body>
 </html>
