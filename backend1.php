@@ -1,6 +1,6 @@
 <?PHP
 
-echo "Hello World ";
+//echo "Hello World ";
 
  require("phpsqlajax_dbinfo.php");
 
