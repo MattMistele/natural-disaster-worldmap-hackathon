@@ -9,15 +9,15 @@ echo "Hello World ";
  $password="Nobodygetswhattheywant!";
  $database="disaster";
 
-// function parseToXML($htmlStr)
-// {
-// $xmlStr=str_replace('<','&lt;',$htmlStr);
-// $xmlStr=str_replace('>','&gt;',$xmlStr);
-// $xmlStr=str_replace('"','&quot;',$xmlStr);
-// $xmlStr=str_replace("'",'&#39;',$xmlStr);
-// $xmlStr=str_replace("&",'&amp;',$xmlStr);
-// return $xmlStr;
-// }
+function parseToXML($htmlStr)
+{
+$xmlStr=str_replace('<','&lt;',$htmlStr);
+$xmlStr=str_replace('>','&gt;',$xmlStr);
+$xmlStr=str_replace('"','&quot;',$xmlStr);
+$xmlStr=str_replace("'",'&#39;',$xmlStr);
+$xmlStr=str_replace("&",'&amp;',$xmlStr);
+return $xmlStr;
+}
 
 // Opens a connection to a MySQL server
 $connection=mysql_connect ($servername, $username, $password);
