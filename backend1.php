@@ -50,21 +50,21 @@ echo $result;
 // Start XML file, echo parent node
 echo '<markers>';
 
-// Iterate through the rows, printing XML nodes for each
-while ($row = mysqli_fetch_assoc($result)){
-  // Add to XML document node
-  echo '<marker ';
-  echo 'id="' . $id . '" ';
-  echo 'category="' . parseToXML($row['category']) . '" ';
-  echo 'name="' . parseToXML($row['title']) . '" ';
-  echo 'lat="' . $row['lat'] . '" ';
-  echo 'lng="' . $row['lng'] . '" ';
-  echo 'bubble_size="' . $row['bubble_size'] . '" ';
-  echo 'color="' . $row['color'] . '" ';
-  echo 'help="' . parseToXML($row['help']) . '" ';
-  echo 'description="' . parseToXML($row['description']) . '" ';
-  echo '/>';
-}
+// // Iterate through the rows, printing XML nodes for each
+// //while ($row = mysqli_fetch_assoc($result)){
+//   // Add to XML document node
+//   echo '<marker ';
+//   echo 'id="' . $id . '" ';
+//   echo 'category="' . parseToXML($row['category']) . '" ';
+//   echo 'name="' . parseToXML($row['title']) . '" ';
+//   echo 'lat="' . $row['lat'] . '" ';
+//   echo 'lng="' . $row['lng'] . '" ';
+//   echo 'bubble_size="' . $row['bubble_size'] . '" ';
+//   echo 'color="' . $row['color'] . '" ';
+//   echo 'help="' . parseToXML($row['help']) . '" ';
+//   echo 'description="' . parseToXML($row['description']) . '" ';
+//   echo '/>';
+// //}
 
 // End XML file
 echo '</markers>';
